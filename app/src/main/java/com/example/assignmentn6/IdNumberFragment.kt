@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -29,12 +33,23 @@ class IdNumberFragment : Fragment() {
         }
     }
 
+    val args: IdNumberFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val view = inflater.inflate(R.layout.fragment_id_number, container, false);
+        val action = IdNumberFragmentDirections.actionIdNumberFragmentToAllInfoFragment(
+            args.firstNameArgument, args.lastNameArgument,
+            view.findViewById<EditText>(R.id.editTextIdNumber).text.toString()
+        )
+        view.findViewById<Button>(R.id.button).setOnClickListener {
+            Navigation.findNavController(view)
+                .navigate(action)
+        }
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_id_number, container, false)
+        return view
     }
 
     companion object {
