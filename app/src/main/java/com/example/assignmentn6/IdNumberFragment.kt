@@ -40,13 +40,13 @@ class IdNumberFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_id_number, container, false);
-        val action = IdNumberFragmentDirections.actionIdNumberFragmentToAllInfoFragment(
-            args.firstNameArgument, args.lastNameArgument,
-            view.findViewById<EditText>(R.id.editTextIdNumber).text.toString()
-        )
         view.findViewById<Button>(R.id.button).setOnClickListener {
             Navigation.findNavController(view)
-                .navigate(action)
+                .navigate(IdNumberFragmentDirections.actionIdNumberFragmentToAllInfoFragment(
+                        args.firstNameArgument, args.lastNameArgument,
+                        view.findViewById<EditText>(R.id.editTextIdNumber).text.toString()
+                    )
+                )
         }
         // Inflate the layout for this fragment
         return view

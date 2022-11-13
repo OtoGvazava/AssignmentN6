@@ -37,12 +37,12 @@ class NameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_name, container, false)
-        val action = NameFragmentDirections.actionNameFragmentToLastNameFragment2(
-            view.findViewById<EditText>(R.id.editTextFirstName).text.toString()
-        )
         view.findViewById<Button>(R.id.button).setOnClickListener {
             Navigation.findNavController(view)
-                .navigate(action)
+                .navigate(NameFragmentDirections.actionNameFragmentToLastNameFragment2(
+                        view.findViewById<EditText>(R.id.editTextFirstName).text.toString()
+                    )
+                )
         }
         return view
     }

@@ -40,11 +40,12 @@ class LastNameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_last_name, container, false)
-        val action = LastNameFragmentDirections.actionLastNameFragmentToIdNumberFragment(
-            args.firstNameArgument, view.findViewById<EditText>(R.id.editTextLastName).text.toString()
-        )
         view.findViewById<Button>(R.id.button).setOnClickListener {
-            Navigation.findNavController(view).navigate(action)
+            Navigation.findNavController(view).navigate(
+                LastNameFragmentDirections.actionLastNameFragmentToIdNumberFragment(
+                    args.firstNameArgument, view.findViewById<EditText>(R.id.editTextLastName).text.toString()
+                )
+            )
         }
         return view
     }
