@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/lastNameFragment">
+
+    <fragment
+        android:id="@+id/nameFragment"
+        android:name="com.example.assignmentn6.NameFragment"
+        android:label="fragment_name"
+        tools:layout="@layout/fragment_name" >
+        <argument
+            android:name="nameArgument"
+            app:argType="string"
+            android:defaultValue="name" />
+    </fragment>
+    <fragment
+        android:id="@+id/lastNameFragment"
+        android:name="com.example.assignmentn6.LastNameFragment"
+        android:label="fragment_last_name"
+        tools:layout="@layout/fragment_last_name" />
+    <fragment
+        android:id="@+id/idNumberFragment"
+        android:name="com.example.assignmentn6.IdNumberFragment"
+        android:label="fragment_id_number"
+        tools:layout="@layout/fragment_id_number" />
+    <fragment
+        android:id="@+id/allInfoFragment"
+        android:name="com.example.assignmentn6.AllInfoFragment"
+        android:label="fragment_all_info"
+        tools:layout="@layout/fragment_all_info" >
+        <argument
+            android:name="firstNameArgument"
+            app:argType="string"
+            android:defaultValue="First Name" />
+        <argument
+            android:name="lastNameArgument"
+            app:argType="string"
+            android:defaultValue="Last Name" />
+        <argument android:name="idNumberArgument"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+</navigation>
